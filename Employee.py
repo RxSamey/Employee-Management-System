@@ -1,8 +1,9 @@
 employee = {
     101: {'name': 'Satya', 'age': 27, 'department': 'HR', 'salary': 50000}
-     }
+}
+
 def add_employee():
-    emp_id = int(input("Enter Employee Id: "))
+    emp_id = int(input("Enter Employee ID: "))
     if emp_id in employee:
         print("Employee already exists.")
         return
@@ -19,34 +20,36 @@ def add_employee():
         'salary': salary
     }
 
-    print(f"Employee {name} added successfully.")
+    print(f" Employee '{name}' added successfully.")
 
 def view_employee():
     if not employee:
-        print("No employees available. ")
+        print("No employees available.")
         return
 
-    print("\nEmp ID | Name | Department | Salary")
-    print("----------------------------------------")
+    print(f"\n{'Emp ID':<8} | {'Name':<10} | {'Age':<3} | {'Department':<10} | {'Salary'}")
+    print("-" * 55)
 
     for emp_id, data in employee.items():
-        print(f"{emp_id:<7} | {data['name']:<10} | {data['age']:<3} | {data['department']:<10} | {data['salary']}")
+        print(f"{emp_id:<8} | {data['name']:<10} | {data['age']:<3} | {data['department']:<10} | {data['salary']}")
 
-
-def serch_employee():
+def search_employee():
     emp_id = int(input("Enter Employee ID to Search: "))
     if emp_id in employee:
         emp = employee[emp_id]
-        print(f"\nFound Employee:\nName: {emp['name']}\nAge: {emp['age']}\nDepartment: {emp['department']}\nSalary: {emp['salary']}")
+        print(f"\n Found Employee:")
+        print(f"Name      : {emp['name']}")
+        print(f"Age       : {emp['age']}")
+        print(f"Department: {emp['department']}")
+        print(f"Salary    : {emp['salary']}")
     else:
-        print("Employee Not Found.")
-
+        print(" Employee Not Found.")
 
 def main_menu():
     while True:
-        print("\n--- Employee Managemaent System---")
+        print("\n--- Employee Management System ---")
         print("1. Add Employee")
-        print("2. View All Employee")
+        print("2. View All Employees")
         print("3. Search for Employee")
         print("4. Exit")
 
@@ -57,13 +60,12 @@ def main_menu():
         elif choice == '2':
             view_employee()
         elif choice == '3':
-            serch_employee()
+            search_employee()
         elif choice == '4':
-            print("Thank you")
+            print(" Thank you for using the system.")
             break
         else:
-            print("Invalid input try again")
+            print(" Invalid input. Please try again.")
+
 
 main_menu()
-
-
